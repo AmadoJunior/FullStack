@@ -18,6 +18,19 @@ app.use(cors());
 const posts = require("./routes/api/posts");
 app.use("/api/posts", posts);
 
+// Handle production 
+if(process.env.NODE_ENV === "production") { //This will become true as soon
+    //as we deply to heroku
+    // Static folder
+    app.use(express.static(__dirname + "/public/"));
+
+    //Handle Single Page App
+    // "/.*/" refers to any route
+    app.get(/.*/, (req, res) => {
+        res.sendFile(__dirname + "/public/index.html")
+    });
+}
+
 //Port Variable
 const port = process.env.PORT || 5000;
 
