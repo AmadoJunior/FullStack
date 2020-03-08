@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
         createdAt: new Date()
     });
 
-    res.status(201).send(); //Sets the HTTP status for the response.
+    res.status(201).send(); //Sends a HTTP status for the response.
 })
 
 // Delete Posts
@@ -56,7 +56,7 @@ router.delete('/:id', async (req, res) => {
     property "_id" spects a certain type.
     */
 
-   res.status(200).send(); //Sets the HTTP status for the response. 
+   res.status(200).send(); //Sends a HTTP status for the response. 
 })
 
 //Function to Retrieve data from my data base
